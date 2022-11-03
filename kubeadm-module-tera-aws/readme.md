@@ -6,6 +6,11 @@ They have no CNI plugin installed which causes the nodes to be NotReady and prev
 
 1. Install Terraform
 
+[Terrafrom](https://www.terraform.io/downloads/)
+
+Terraform is distributed as a statically linked, precompiled binary (written in Go)
+and to install it, you simply have to download it and move it to any directory in your PATH.
+
 1. Configure AWS credentials
 
 1. Ensure default OpenSSH keys
