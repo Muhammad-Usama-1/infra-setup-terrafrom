@@ -4,6 +4,12 @@
 
 # EKS setup Using Terraform in custom VPC
 
+We will see some of the different ways of Creating kubernetes environment (managed , self managed) in AWS in isolated envirnment
+
+Firstly we will see how we can create a VPC without using terrafrom module so we can working of VPC in AWS
+
+Then we will see how we can utilize terrafrom module to create VPC
+
 A brief description of how to setup comeplete EKS environment for Application
 Deployments ets in AWS with VPC
 
