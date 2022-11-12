@@ -1,3 +1,6 @@
+# I added
+*.cert
+*.key
 #  Local .terraform directories
 **/.terraform/*
 *sshkey*
