@@ -169,3 +169,7 @@ how it will works , we will create a user , and role with get,list and create rb
 service account -> Cluster role --> Restrict to view,get ,list etc
 
 --- cl us t er role bi nid ing----
+
+# Verify binaries before deploy
+
+we will using checksum

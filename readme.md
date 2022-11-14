@@ -36,3 +36,5 @@ You can now use kubectl to manage your cluster and deploy Kubernetes configurati
 
 kubectl cluster-info
 kubectl get nodes
+
+When you create a new cluster, Amazon EKS creates an endpoint for the managed Kubernetes API server that you use to communicate with your cluster (using Kubernetes management tools such as kubectl). By default, this API server endpoint is public to the internet, and access to the API server is secured using a combination of AWS Identity and Access Management (IAM) and native Kubernetes Role Based Access Control (RBAC).
