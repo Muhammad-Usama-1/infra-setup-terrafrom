@@ -253,3 +253,99 @@ you can always install new shell
 whenever we create a user /etc/skell content gets copy in user home directory
 
 use case : let suppose you added new user and want to give file about instruction , company pollicy or anything you get the point right ?
+
+## password
+
+```bash
+cat /etc/shadow
+```
+
+usama:encrypted-password
+
+```bash
+chage -l usama
+```
+
+it will show the expiry etc of usama
+
+```yaml
+Last password change: Dec 05, 2022
+Password expires: never
+Password inactive: never
+Account expires: never
+Minimum number of days between password change: 0
+Maximum number of days between password change: 99999
+Number of days of warning before password expires: 7
+```
+
+you can also locked the password
+
+usermod -L usama
+for unlock
+usermod -U usama
+
+## Groups
+
+```bash
+groupadd devops
+```
+
+in etc/group
+
+you can see all the primary and secondary group of a particular user
+
+```bash
+groups
+```
+
+for seeing other groups
+
+```bash
+groups usama
+```
+
+we can also use
+
+```bash
+id -a usama
+```
+
+## how to modify user (add user in group)
+
+```bash
+usermod -a -G tennis usama
+```
+
+-aG is use for adding in secondary group
+
+and if you want to change primary group we will user -g
+
+## how to change group name
+
+```bash
+groupmod -n newname oldname
+```
+
+if we want to delete the group
+
+```bash
+groupdel groupnametodelte
+```
+
+if you want to make admin any user
+
+```bash
+gpasswd -A username groupname
+```
+
+now if admin want to add in the group
+
+```bash
+gpasswd -a user groupname
+```
+
+now if admin want to remove in the group
+
+```bash
+gpasswd -d user groupname
+```

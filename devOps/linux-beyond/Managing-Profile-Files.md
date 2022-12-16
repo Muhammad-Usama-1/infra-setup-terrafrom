@@ -28,7 +28,17 @@ etc/bashrc (system wide func and aliases)
 ## user file
 
 usually
-.bash_logout
-.bash_profile
+.bash_logout (it tell system that user has logout)
+.bash_profile or .profile in debian (not 100% sure) or bash_login in any flavour
 .bashrc
-.bash_history
+.bash_history (session history)
+
+.profile execute only once when we login in as user and it source .bashrc
+
+and bahrc execute on every shell (/etc/bashrc)
+
+Summary of prfile file
+if globaly then in etc/
+if user specifi then in user home directory
+
+for var, function bashrc
