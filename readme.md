@@ -1,8 +1,20 @@
-# Infrastructure setup using terraform
+## Guilde to DevOps
 
-### VPC , EKS etc
+This guides contains
 
-# EKS setup Using Terraform in custom VPC
+1. ### Linux (LVM, filesystem, processes, disk management , users etc )
+
+1. ### Microservices Security (docker best practises etc and other CIS guildeline , tools)
+
+1. ### Terraform files for EKS ,kubeadm
+
+1. ### other DevOps tools
+
+---
+
+# VPC , EKS etc
+
+### EKS setup Using Terraform in custom VPC
 
 We will see some of the different ways of Creating kubernetes environment (managed , self managed) in AWS in isolated envirnment
 
@@ -38,15 +50,3 @@ kubectl cluster-info
 kubectl get nodes
 
 When you create a new cluster, Amazon EKS creates an endpoint for the managed Kubernetes API server that you use to communicate with your cluster (using Kubernetes management tools such as kubectl). By default, this API server endpoint is public to the internet, and access to the API server is secured using a combination of AWS Identity and Access Management (IAM) and native Kubernetes Role Based Access Control (RBAC).
-
-## Four pillars of devops
-
-The four pillars of DevOps are:
-
-- Automate everything
-
-- Create a culture of continuous improvement
-
-- Measure everything, then learn from what you measure
-
-- Work as one team

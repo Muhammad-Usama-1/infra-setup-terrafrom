@@ -155,6 +155,8 @@ OUTPUT
 ```bash
 lvcreate -L 3G -n LinuxLV   LinuxVG
 #         size   name of lv nameof  group
+# another way through extends (1000 means 1000 extends )
+lvcreate -l 1000 -n LinuxLV   LinuxVG
 #actual demo command
 lvcreate -L 10G -n LinuxLV LinuxVG
 ```
