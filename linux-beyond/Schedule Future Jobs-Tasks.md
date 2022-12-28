@@ -2,6 +2,8 @@
 
 ### Schedule Job Task for Futute using at command
 
+# at crontab , advanced crontab
+
 # crontab vs at command
 
 <b>
@@ -280,3 +282,19 @@ anacron is typically used to schedule system maintenance tasks, such as running 
 To use anacron, you can create an anacrontab file in the /etc/anacrontab directory, specifying the schedule and commands for the tasks you want to run. You can then start anacron by running the anacron command. anacron will run the scheduled tasks according to the specified intervals and update the last-run time for each task in the anacrontab file.
 
 For more information about anacron, you can consult the anacron man page or consult online resources such as the Anacron documentation.
+
+# Schedule Advanced & Complex Cronjobs in Linux?
+
+```bash
+timedatectl set-time "2021-06-13 23:39:50"
+```
+
+at 11 : 30 on week days
+
+30 23 \* \* 1-5
+
+11 40 on weekends
+
+40 23 \* \* sat.sun
+
+https://crontab.guru/

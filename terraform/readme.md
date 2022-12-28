@@ -14,6 +14,20 @@ Terraform and CloudFormation are both infrastructure-as-code (IaC) tools. CloudF
 
 Using Terraform has several advantages over manually managing your infrastructure: Terraform can manage infrastructure on multiple cloud platforms. The human-readable configuration language helps you write infrastructure code quickly. Terraform's state allows you to track resource changes throughout your deployments.
 
+## Difference between terraform and ansible
+
+Terraform and Ansible are both tools that are commonly used in the field of infrastructure as code (IaC). They both allow you to manage and automate the deployment and management of infrastructure and applications, but they work in slightly different ways and are often used for different purposes.
+
+Here are some key differences between Terraform and Ansible:
+
+Purpose: Terraform is a tool for building, changing, and versioning infrastructure safely and efficiently. It is used to manage infrastructure resources such as virtual machines, networking, and storage. Ansible is a configuration management tool that is used to automate the deployment and configuration of applications and systems.
+
+Language: Terraform uses its own configuration language called HashiCorp Configuration Language (HCL). This language is designed to be human-readable and easy to write, but it is specific to Terraform and not widely used outside of it. Ansible uses YAML, which is a widely-used, human-readable data serialization language.
+
+Execution: Terraform executes its configuration files by creating an execution plan and then applying that plan to create or modify resources in your infrastructure. This means that you need to explicitly specify the desired end state of your infrastructure, and Terraform will figure out how to achieve it. Ansible, on the other hand, executes its configuration files by connecting to managed nodes and running tasks on them. This means that you need to specify the tasks that you want to run on each node, and Ansible will execute them in order.
+
+State management: Terraform maintains a state file that keeps track of the resources it has created and their current configurations. This allows it to manage the dependencies between resources and make sure that changes to one resource don't break any others. Ansible does not maintain a state file, but it does allow you to use variables and conditionals to manage the configuration of managed nodes.
+
 ## Installing Terrafrom
 
 [Terraform Installation](https://www.terraform.io/downloads)
