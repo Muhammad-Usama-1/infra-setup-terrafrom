@@ -50,6 +50,16 @@ id usama
 
 ## Switch Users
 
+### But first understand su - usama vs su usama
+
+su is a command used to switch the current user to another user. The - option is used to specify that you want to switch to the target user's environment.
+
+For example, if you run su usama, you will be prompted for the password of the usama user, and then you will be logged in as usama. However, your environment (e.g., current working directory, environment variables) will not be changed.
+
+On the other hand, if you run su - usama, you will again be prompted for the password of the usama user, but this time your environment will be changed to match that of the usama user. This includes changing the current working directory to the usama user's home directory, as well as setting all of the usama user's environment variables.
+
+In general, it is recommended to use su - when switching to another user, as this ensures that your environment is correctly set up for the target user.
+
 if you want to switch to the differnet user (must have password for that user)
 
 ```bash
@@ -99,7 +109,7 @@ useradd linux
 
 here you will have to use sudo
 
-from this cpmmand we can dorectly open sudo file
+from this command we can directly open sudo file
 
 ```bash
 visudo
