@@ -20,6 +20,8 @@ This guides contains
 
 DNS Topic with confirution to domain provider, concept of nameserver and cpanel
 
+firewal-cmd command
+
 ### EKS setup Using Terraform in custom VPC
 
 We will see some of the different ways of Creating kubernetes environment (managed , self managed) in AWS in isolated envirnment
