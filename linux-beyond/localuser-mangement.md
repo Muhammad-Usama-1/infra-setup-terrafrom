@@ -50,13 +50,13 @@ id usama
 
 ## Switch Users
 
-### But first understand su - usama vs su usama
+### But first understand su - bilal vs su bilal
 
 su is a command used to switch the current user to another user. The - option is used to specify that you want to switch to the target user's environment.
 
-For example, if you run su usama, you will be prompted for the password of the usama user, and then you will be logged in as usama. However, your environment (e.g., current working directory, environment variables) will not be changed.
+For example, if you run su bilal, you will be prompted for the password of the bilal user, and then you will be logged in as bilal. However, your environment (e.g., current working directory, environment variables) will not be changed.
 
-On the other hand, if you run su - usama, you will again be prompted for the password of the usama user, but this time your environment will be changed to match that of the usama user. This includes changing the current working directory to the usama user's home directory, as well as setting all of the usama user's environment variables.
+On the other hand, if you run su - bilal, you will again be prompted for the password of the bilal user, but this time your environment will be changed to match that of the bilal user. This includes changing the current working directory to the bilal user's home directory, as well as setting all of the bilal user's environment variables.
 
 In general, it is recommended to use su - when switching to another user, as this ensures that your environment is correctly set up for the target user.
 
@@ -180,6 +180,12 @@ username:encryptedpasswordkey:userid:primarygrouid::displayname:homedir:shell
 ## how to add user ?
 
 useradd -m -d -c "" name
+
+```bash
+useradd -m bilal
+sudo passwd bilal
+
+```
 
 -m modified way
 -d home directory

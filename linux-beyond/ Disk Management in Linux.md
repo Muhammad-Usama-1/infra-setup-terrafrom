@@ -83,7 +83,7 @@ lshw
 lsscsi
 ```
 
-for make disk unable to recover data
+# Make disk unable to recover data
 
 ```bash
 badblock -ws dev/sda

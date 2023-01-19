@@ -60,8 +60,6 @@ Install MySQL by running:
 sudo apt install mysql-server
 ```
 
-During the installation process, you will be prompted to set a password for the MySQL root user. Make sure to remember this password.
-
 ```bash
 #check status of mysql
 sudo systemctl status mysql
@@ -72,6 +70,7 @@ use <i> mysql_secure_installation </i> that is provided with MySQL that can be u
 To use mysql_secure_installation, you will need to log in to the MySQL server as the root user and password Then, you can run the mysql_secure_installation script and follow the prompts to disable anonymous user accounts, and remove the test database.
 
 This can help to reduce the risk of unauthorized access to your MySQL server.
+
 before running we need to know the password
 lets create
 
@@ -80,7 +79,7 @@ lets create
 ```
 
 ```mysql
-ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '123';
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
 ```
 
 ```bash
@@ -173,7 +172,7 @@ ALTER USER 'root'@'localhost' IDENTIFIED WITH auth_socket;
 for creating a database and a user, follow these steps:
 
 1. Connect to the MySQL server as the root user: mysql -u root -p
-1. Create a database: CREATE DATABASE database_name;
+1. Create a database: CREATE DATABASE example_database;
 1. Create a user and grant it privileges on the database:
 
 ```bash
@@ -183,8 +182,30 @@ mysql   -u root -p
 
 ```mysql
 # In mysql
-CREATE USER 'username'@'localhost' IDENTIFIED BY 'password';
-GRANT ALL PRIVILEGES ON database_name.* TO 'username'@'localhost';
+CREATE USER 'sammy'@'localhost' IDENTIFIED BY 'password';
+
+CREATE DATABASE example_database;
+GRANT ALL PRIVILEGES ON example_database.* TO 'sammy'@'localhost';
+
+CREATE TABLE example_database.todo_list (
+	item_id INT AUTO_INCREMENT,
+	content VARCHAR(255),
+	PRIMARY KEY(item_id)
+);
+
+
+INSERT INTO example_database.todo_list (content) VALUES ("My 1 bucket  item");
+
+INSERT INTO example_database.todo_list (content) VALUES ("My 2 bucket  item");
+
+INSERT INTO example_database.todo_list (content) VALUES ("My 3 bucket  item");
+
+INSERT INTO example_database.todo_list (content) VALUES ("My 4 bucket  item");
+
+
+# verify the items
+SELECT * FROM example_database.todo_list;
+
 ```
 
 <b>Install PHP:</b>
@@ -247,6 +268,7 @@ sudo vim /var/www/html/info.php
 Add the following lines to the file:
 
 ```vim
+
 <?php
 phpinfo();
 ?>
@@ -256,8 +278,32 @@ phpinfo();
 
 open the browser and head over to
 
-http://ip-address-of-machine/php.info
+http://ip-address-of-machine/info.php
 
 so far you are able to see php file serviing you to through appache webserver
 
 you can also connect to databse from
+
+### check databse connection;
+
+create a file name db.php and insert the below content
+
+```php
+<?php
+$user = "sammy";
+$password = "password";
+$database = "example_database";
+$table = "todo_list";
+
+try {
+  $db = new PDO("mysql:host=localhost;dbname=$database", $user, $password);
+  echo "<h2>TODO</h2><ol>";
+  foreach($db->query("SELECT content FROM $table") as $row) {
+    echo "<li>" . $row['content'] . "</li>";
+  }
+  echo "</ol>";
+} catch (PDOException $e) {
+    print "Error!: " . $e->getMessage() . "<br/>";
+    die();
+}
+```

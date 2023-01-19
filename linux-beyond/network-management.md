@@ -10,7 +10,7 @@ One of the main differences between IPv4 and IPv6 is the size of the address spa
 
 In summary, IPv4 and IPv6 are different versions of the IP protocol that are used to route traffic on the internet. IPv4 is the most widely used version today, but IPv6 is increasingly being adopted as the shortage of IPv4 addresses becomes more acute.
 
-To assign a static IP address to a network interface in Ubuntu using the nmtui command-line tool, you can follow these steps:
+# To assign a static IP address to a network interface in Ubuntu using the nmtui command-line tool, you can follow these steps:
 
 Open the nmtui tool by typing the following command into a terminal window:
 
@@ -58,3 +58,96 @@ sudo netplan apply
 ```
 
 I hope this helps! Let me know if you have any questions.
+
+---
+
+## Assigning Static IP address in ubuntu
+
+```bash
+cat /etc/netplan/00-installer-config.yaml
+```
+
+In this current situation IP address is assigning through DHCP
+
+in this file our network adapter enp0s3 is getting IP address through DHCP
+
+```yaml
+network:
+  version: 2
+  ethernets:
+    enp0s3:
+      dhcp4: true
+```
+
+before applying static IP we will require couple of things
+
+1. your default route
+1. your network adapter name
+
+for knowing your default route
+
+```bash
+route -n
+```
+
+```yaml
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+0.0.0.0         192.168.1.1     0.0.0.0         UG    100    0        0 enp0s3
+192.168.1.0     0.0.0.0         255.255.255.0   U     0      0        0 enp0s3
+```
+
+for name of network adapter
+run ip addr , and see for
+
+<img src = "ip.png" >
+
+we have both of our requirement now lets assign tatic IP by editing a file which you saw before
+
+```bash
+vim /etc/netplan/00-installer-config.yaml
+```
+
+```yaml
+network:
+  version: 2
+  ethernets:
+    # It is the name of your adapter  (you will have different)
+    enp0s3:
+      # IP addresses you want , multiple also can be give byseparating with comma
+      addresses: [192.168.1.161/24]
+      routes:
+        - to: 0.0.0.0/0
+          # via is your default route
+          via: 192.168.1.1
+          metric: 100
+      nameservers:
+        # you can have different DNS server here like for google or cloudfare , 8.8.8.8
+        addresses: [127.0.0.53]
+```
+
+this change will only run on boot, for quic reflection run
+
+beaware you will loss ssh coonection from termianal if you accesing remotely
+
+```bash
+ sudo netplan apply
+```
+
+## lets add adapter
+
+But why you might want to use multiple network adapters on a Linux system:
+
+To increase the available bandwidth: By using multiple network adapters, you can increase the total available bandwidth and improve the performance of your system.
+
+To connect to multiple networks: If you need to connect to multiple networks, such as a corporate network and a home network, you can use multiple network adapters to do so.
+
+To use different types of connections: If you need to connect to a network using different types of connections, such as Ethernet and WiFi, you can use multiple network adapters to do so.
+
+To improve network security: By using multiple network adapters, you can create separate network segments and improve the security of your system.
+
+---
+
+/etc/NetworkManager/system-connections ,
+
+nmcli new adapter

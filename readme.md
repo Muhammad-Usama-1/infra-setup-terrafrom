@@ -20,7 +20,10 @@ This guides contains
 
 DNS Topic with confirution to domain provider, concept of nameserver and cpanel
 
-firewal-cmd command
+Certificate manager aws
+vpn connection , site, aws client,
+ML know , how
+data analytics know how for aws service
 
 ### EKS setup Using Terraform in custom VPC
 

@@ -1,5 +1,31 @@
 # DNS
 
+Every computer on internet connected to a hge worldwide tree of DNS
+
+Organization have more than DNS
+Modern Router has DNS
+
+DNS has a system to resolve name to IP
+
+## DNS is service on tcp/ip network taht enable clinet to translate name in to ip addres
+
+```bash
+nslookup linkedin.in
+```
+
+DNS use port 53 , tcp for zone transfering and UPD for naming
+
+Steps:
+
+1. set static host name
+1. update packages
+
+include "/etc/bind/named.conf.options";
+include "/etc/bind/named.conf.local";
+include "/etc/bind/named.conf.default-zones";
+
+---
+
 Domain Name System (DNS) is a decentralized system that allows users to access websites by typing in easy-to-remember domain names (e.g., example.com) rather than numerical IP addresses. When you type a domain name into your web browser, the browser sends a request to a DNS server to resolve the domain name to an IP address. The DNS server then responds with the IP address, which the browser uses to connect to the correct website.
 
 A nameserver is a server that translates domain names into IP addresses. When you register a domain name, you will need to specify the nameservers that will be responsible for translating that domain name into an IP address. This is done using the Domain Name System (DNS).
