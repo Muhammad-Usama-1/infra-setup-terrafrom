@@ -1,13 +1,14 @@
 # DNS
 
-Every computer on internet connected to a hge worldwide tree of DNS
+Every computer on internet connected to a huge worldwide tree of DNS
 
-Organization have more than DNS
+Organization have more than one DNS
+
 Modern Router has DNS
 
 DNS has a system to resolve name to IP
 
-## DNS is service on tcp/ip network taht enable clinet to translate name in to ip addres
+## DNS is service on tcp/ip network that enable clinet to translate name in to ip addres
 
 ```bash
 nslookup linkedin.in
@@ -18,8 +19,9 @@ DNS use port 53 , tcp for zone transfering and UPD for naming
 Steps:
 
 1. set static host name
-1. update packages
+1. update packages and install bind9 package
 
+Edit these files
 include "/etc/bind/named.conf.options";
 include "/etc/bind/named.conf.local";
 include "/etc/bind/named.conf.default-zones";
@@ -42,8 +44,6 @@ Set the nameservers for your domain to the nameservers provided by Amazon Route 
 
 Test your configuration by using tools such as nslookup or dig to verify that your DNS records are being resolved correctly.
 
-I hope this helps! Let me know if you have any questions or need further clarification.
-
 Here are a few additional points that may help clarify some aspects of DNS and its configuration:
 
 DNS is hierarchical, meaning that it is organized into a tree-like structure. At the top of the hierarchy are the root servers, which are responsible for delegating requests to the appropriate top-level domains (TLDs), such as .com, .net, and .org. TLD servers are then responsible for delegating requests to the appropriate second-level domains (e.g., example.com), and so on.
@@ -55,5 +55,3 @@ When you create a hosted zone in Amazon Route 53, you will need to specify the n
 In order to use Amazon Route 53 as your DNS provider, you will need to set the nameservers for your domain to the nameservers provided by Amazon Route 53. This can typically be done through your domain registrar's website or control panel.
 
 It is important to test your DNS configuration to ensure that it is working correctly. Tools such as nslookup and dig allow you to query DNS servers and view the results, which can help you troubleshoot any issues that may arise.
-
-I hope this helps! Let me know if you have any more questions or need further clarification.

@@ -2,13 +2,21 @@
 
 This guides contains
 
+# TODO
+
+AT LEAST ONE EMAIL CONFIGURATION WITH BLOG
+
+# INCOMPLETE
+
+DNS CONFIGURATION
+
 1. ### Linux (LVM, filesystem, processes, disk management , users etc )
 
 1. ### Microservices Security (docker best practises etc and other CIS guildeline , tools)
 
 1. ### Terraform files for EKS ,kubeadm
 
-1. ### AWS Tools use case with project
+1. ### AWS Tools use case with projects
    1. AWS client VPN
    1. More comming soon
 
@@ -24,15 +32,6 @@ terraform apply
 ```
 
 ---
-
-## TODO
-
-DNS Topic with confirution to domain provider, concept of nameserver and cpanel
-
-Certificate manager aws
-vpn connection , site, aws client,
-ML know , how
-data analytics know how for aws service
 
 ### EKS setup Using Terraform in custom VPC
 
