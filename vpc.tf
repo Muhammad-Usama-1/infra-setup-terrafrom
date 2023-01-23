@@ -9,6 +9,7 @@ resource "aws_vpc" "default" {
   }
 }
 
+# Creating Public subnets
 resource "aws_subnet" "public" {
   count = length(var.public_subnet_cidr_blocks)
   vpc_id                  = aws_vpc.default.id
@@ -20,7 +21,7 @@ resource "aws_subnet" "public" {
     Name = "${var.project}-pub-subnet-${substr(var.availability_zones[count.index], 8, 2)}",   
   }
 }
-
+# Creating Private subnets
 resource "aws_subnet" "private" {
   count = length(var.private_subnet_cidr_blocks)
   vpc_id            = aws_vpc.default.id
@@ -30,9 +31,12 @@ resource "aws_subnet" "private" {
     Name = "${var.project}-priv-subnet-${substr(var.availability_zones[count.index], 8, 2)}",   
   }
 }
+
+# Creating internet gateway for accesing to internet
 resource "aws_internet_gateway" "igw" {
   vpc_id = aws_vpc.default.id
 }
+# create route table with a record to internet incase of 0.0.0.0
 resource "aws_route_table" "public-rt" {
  vpc_id = aws_vpc.default.id
  
@@ -46,15 +50,15 @@ resource "aws_route_table" "public-rt" {
  }
 }
 
+
 resource "aws_eip" "nat" {
- 
   vpc = true
 }
 
 resource "aws_nat_gateway" "default" {
-  
   depends_on = [aws_internet_gateway.igw]
   allocation_id = aws_eip.nat.id
+  # Launching aws nat gateway in public subnet
   subnet_id     = aws_subnet.public[1].id
 }
 
@@ -77,7 +81,6 @@ resource "aws_route_table_association" "private" {
 }
 resource "aws_route_table_association" "public" {
   count = length(var.public_subnet_cidr_blocks)
-
   subnet_id      = aws_subnet.public[count.index].id
   route_table_id = aws_route_table.public-rt.id
 }

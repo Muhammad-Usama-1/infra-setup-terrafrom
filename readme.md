@@ -8,11 +8,20 @@ This guides contains
 
 1. ### Terraform files for EKS ,kubeadm
 
-1. ### other DevOps tools
+1. ### AWS Tools use case with project
+   1. AWS client VPN
+   1. More comming soon
 
 ---
 
-# VPC , EKS etc
+# VPC set up
+
+this main folder have three files which will create a vpc named provider.tf ,vpc.tf, variable.tf
+
+```bash
+terraform init
+terraform apply
+```
 
 ---
 
