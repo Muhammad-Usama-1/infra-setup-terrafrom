@@ -9,12 +9,19 @@ AT LEAST ONE EMAIL CONFIGURATION WITH BLOG
 # INCOMPLETE
 
 DNS CONFIGURATION
+Examples of Microservices Best practise
 
-1. ### Linux (LVM, filesystem, processes, disk management , users etc )
+1. ### Linux (LVM, filesystem, processes, disk management , users , SSH best practices , shedule jobs and tasks etc )
+
+   1. Network management (Assigning static IPs)
+   1. All types of RAID (comming soon)
+   1. Users management, sudo group , setting up root password in ubuntu 22.04
 
 1. ### Microservices Security (docker best practises etc and other CIS guildeline , tools)
 
-1. ### Terraform files for EKS ,kubeadm
+1. ### Modular way for creating VPC with Terraform
+
+1. ### Terraform for setting up EKS clustter in AWS or using with kubeadm
 
 1. ### AWS Tools use case with projects
    1. AWS client VPN
@@ -32,6 +39,96 @@ terraform apply
 ```
 
 ---
+
+---
+
+---
+
+---
+
+```bash
+├── ansible
+│ └── readme.md
+├── aws
+│ ├── aws-services-basic-defination.md
+│ ├── client-vpn.md
+│ ├── dynamo-trigger-lamda-sns.md
+│ └── send-ses-email.md
+├── cli-eks
+│ ├── cluster.yaml
+│ └── readme.md
+├── cloud-computing-term
+│ └── readme.md
+├── DNS
+│ └── readme.md
+├── docker
+│ └── intro.md
+├── dumb.txt
+├── eks-setup-1
+│ ├── eks-cluster.tf
+│ ├── main.tf
+│ ├── outputs.tf
+│ ├── readme.md
+│ ├── security-groups.tf
+│ ├── variable.tf
+│ ├── versions.tf
+│ └── vpc.tf
+├── k8s-security
+│ ├── example-ingress.yaml
+│ ├── image1.png
+│ ├── readme.md
+│ ├── reports.txt
+│ └── tools.md
+├── kubeadm-module-tera-aws
+│ ├── main.tf
+│ └── readme.md
+├── linux-beyond
+│ ├── Control Operators.md
+│ ├── Disk Management in Linux.md
+│ ├── email-config.md
+│ ├── File Permissions(Standard, Special & ACL).md
+│ ├── file-security.md
+│ ├── Filesystems & Mounting in Linux.md
+│ ├── ipadd.png
+│ ├── ip.png
+│ ├── LAMP_Stack.md
+│ ├── linux.gif
+│ ├── localuser-mangement.md
+│ ├── lvm
+│ │ ├── Logical Volume (LVM) Snapshot Feature.md
+│ │ ├── LVM.md
+│ │ ├── Migrate Logical Volume Disk To Another Server.md
+│ │ ├── Migrate Physical Volumes.md
+│ │ ├── Restore Removed LVM With Data in Linux.md
+│ │ └── Split Volume Groups in Linux.md
+│ ├── Managing-Profile-Files.md
+│ ├── network-management.md
+│ ├── Process Management in Linux.md
+│ ├── pub-controlop.md
+│ ├── raid.md
+│ ├── readme.md
+│ ├── Schedule Future Jobs-Tasks.md
+│ ├── ssh.md
+│ └── System Logging & Logs Management .md
+├── modular-way-vpc
+│ ├── main.tf
+│ ├── variable.tf
+│ └── vpc.tf
+├── Prometheus
+│ └── readme.md
+├── provider.tf
+├── random-tips-tricks
+│ └── readme.md
+├── readme.md
+├── send_email.js
+├── terraform
+│ ├── images
+│ │ └── terraform.webp
+│ └── readme.md
+├── terraform.tfstate
+├── variable.tf
+└── vpc.tf
+```
 
 ### EKS setup Using Terraform in custom VPC
 
