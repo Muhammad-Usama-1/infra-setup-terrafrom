@@ -151,3 +151,22 @@ To improve network security: By using multiple network adapters, you can create 
 /etc/NetworkManager/system-connections ,
 
 nmcli new adapter
+
+---
+
+## Check All open ports
+
+```bash
+nmap 192.168.1.112
+```
+
+```yaml
+Starting Nmap 7.80 ( https://nmap.org ) at 2023-01-27 16:07 UTC
+Nmap scan report for usama (192.168.1.112)
+Host is up (0.00031s latency).
+Not shown: 999 closed ports
+PORT   STATE SERVICE
+22/tcp open  ssh
+
+Nmap done: 1 IP address (1 host up) scanned in 0.23 seconds
+```

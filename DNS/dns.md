@@ -55,3 +55,38 @@ When you create a hosted zone in Amazon Route 53, you will need to specify the n
 In order to use Amazon Route 53 as your DNS provider, you will need to set the nameservers for your domain to the nameservers provided by Amazon Route 53. This can typically be done through your domain registrar's website or control panel.
 
 It is important to test your DNS configuration to ensure that it is working correctly. Tools such as nslookup and dig allow you to query DNS servers and view the results, which can help you troubleshoot any issues that may arise.
+
+# Cname vs NS
+
+## nameserver when you point Domain to IP
+
+## cname when you point domain to sub domain
+
+---
+
+# DEMO
+
+install
+
+yum install bind bind-utils
+
+check file of
+
+cat /etc/named.conf
+
+restart named service and see listen port and IP
+edit ip too listen on network it own ip not in localhost
+
+now restaart
+and check
+
+netstat -antp
+
+change client dns ip
+ping 8.8.8.8 and check internet
+ping any-server will not work
+
+allow-query to network
+
+primary DNS mean it will have zone files
+secondry is a copy

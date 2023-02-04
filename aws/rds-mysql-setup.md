@@ -4,7 +4,7 @@
 
 ## Instance type
 
-## Importing OPtions
+## Importing Options
 
 ## Storage types , IOPS
 
