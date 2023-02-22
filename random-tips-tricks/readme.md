@@ -68,3 +68,11 @@ node -v
 # Make some Alias
 
 alias df = df -h
+
+---
+
+You can use the reverse search feature by pressing CTRL + R in the terminal, which will let you search through your command history in reverse order. You can then type in a search term and press CTRL + R again to find the next match.
+
+Use the ctrl + a and ctrl + e shortcuts: You can use the CTRL + A and CTRL + E shortcuts to move to the beginning and end of the current line
+
+---

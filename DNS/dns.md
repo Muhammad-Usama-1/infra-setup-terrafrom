@@ -69,6 +69,7 @@ It is important to test your DNS configuration to ensure that it is working corr
 install
 
 yum install bind bind-utils
+sudo apt install -y bind9 bind9utils bind9-doc dnsutils
 
 check file of
 
@@ -90,3 +91,7 @@ allow-query to network
 
 primary DNS mean it will have zone files
 secondry is a copy
+
+FQDN -- > hostname + domain name
+
+ZONE -> it is a portion of DNS tree , that covers one domain name or child domain name
