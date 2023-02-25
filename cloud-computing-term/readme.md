@@ -1,5 +1,13 @@
 # Some cloud Concepts in No Particular order
 
+# DHCP
+
+# NAT Gateway
+
+# Proxies
+
+# NAT Gateway
+
 # clustering vs mirroring in cloud
 
 Clustering and mirroring are two different approaches that can be used in cloud computing to improve the performance and availability of applications.

@@ -76,3 +76,7 @@ You can use the reverse search feature by pressing CTRL + R in the terminal, whi
 Use the ctrl + a and ctrl + e shortcuts: You can use the CTRL + A and CTRL + E shortcuts to move to the beginning and end of the current line
 
 ---
+
+# Check Listening
+
+sudo netstat -tulpn | grep LISTEN

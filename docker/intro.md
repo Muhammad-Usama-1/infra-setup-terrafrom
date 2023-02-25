@@ -31,3 +31,5 @@ docker build .
 ```
 
 This will build the Docker image using the instructions in the Dockerfile in the current directory. You can then use the docker run command to start a container based on the image you just built.
+
+---

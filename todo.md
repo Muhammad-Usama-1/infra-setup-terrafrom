@@ -1,0 +1,8 @@
+# INCOMPLETE
+
+DNS CONFIGURATION
+Examples of Microservices Best practise
+
+# TODO
+
+AT LEAST ONE EMAIL CONFIGURATION WITH BLOG
