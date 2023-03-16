@@ -14,7 +14,7 @@ sudo !!
 
 it will run the previous command with sudo privilages
 
-## empty content of a file without opening in any edtior (from terminal)
+## empty content of a file without opening it in any edtior (from terminal)
 
 Add > (less then to filename)
 

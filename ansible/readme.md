@@ -1,10 +1,12 @@
+rhcsa -> rhce -> rhca
+
 # Ansible
 
-open-sorce
+open-sorce , python
 
 push base , does not requre any software on client
 
-agentless
+agentless (no need to install anyting on client)
 
 works on ssh
 
@@ -16,6 +18,106 @@ puppet ,chef --> pull base , agentes present , keep pulling server
 
 ansible -> push base
 
+## inventory file can be two type
+
+inventory file is a collection of your hosts
+localation can be anywhere
+, name could br anything,
+no root sudo priviliges require to create inventoryy file
+language could ini or yml
+
+RULES :
+
+1.  must be in group
+    [web]
+    ip-1
+    ip-2-of-node-machine
+    can-be-domain-ifdns
+
+if we have large no of server ,
+
+192.168.10.[1:20]
+server[1:10].com
+
+groups with groups
+
+[newgroup:children]
+web
+dev
+
+verify any error
+
+ansible web --list-hosts
+
+we will need to ansible our custom inv entory file
+ansible web --list-hosts -i /path-to-custom-inventory
+ansible web:db --list-hosts -i /path-to-custom-inventory
+
+ansible all --list-hosts -i /path-to-custom-inventory
+for changinf ansible default host we can define in ansible conf
+like
+[defaults]
+inventory = /home/usama/inventroy-new-location
+static (not changes) , dynamic
+
+---
+
+we can also make own conf file
+
+[defaults]
+inventory =new-path
+
+ansible look for config file in following order
+export var ,
+pwd,
+home
+defailt /etc
+
+## connection with manage nodes
+
+password based
+passwordless , key
+inventory based
+
+ansible all -m ping -i loc-of-inv
+
+ansible all -m ping -i loc-of-inv
+ansible all -m ping -i loc-of-inv -k
+-k for passsword prompt
+
+we can disable host-key-checking
+host_key_checking
+
+### key base
+
+first create a user
+useradd -m ansible_user
+echo 'ansible_user:redhat' | sudo chpasswd
+echo "ansible_user ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/ansible_user
+
+switch to that user now generate ssh key
+check ssh
+copy the keygen result to nodes with new user
+
+---
+
+adduser sammy
+usermod -aG sudo sammy
+su - sammy
+echo "ansible_user ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/ansible_user
+
+grants the user ansible_user permission to run any command with sudo without being prompted for a password.
+
+## Inventry base
+
+in inventory file in group
+
+ip ansible_ssh_user=remote-user ansibl_ssh_passremot-user-pass
+
+[web:vars]
+ansible_ssh_user=remote-user
+ansibl_ssh_passremot-user-pass
+
 # installing
 
 sudo apt-add-repository ppa:ansible/ansible;
@@ -24,6 +126,25 @@ sudo apt-get install ansible;ansible --version
 It's also recommended to install python-pip, python-apt, python-apt-common with the following command:
 
 sudo apt-get install -y python-pip python-apt python-apt-common
+
+# | Ansible Ad-Hoc Commands & Modules |
+
+used for one time task
+
+ansible groupname -m modulename -a 'argument'
+ansible playbook for repetitive task
+
+first create a user
+useradd usama
+echo 'taha:redhat' | sudo chpasswd
+echo "taha" ALL=(ALL) NOPASSWD:ALL | sudo tee /etc/sudoers.d/taha
+
+check ssh
+copy the keygen result to nodes with new user
+
+lets see module for copy
+
+---
 
 # host file
 
@@ -85,3 +206,10 @@ ansible -i fileforhost ip-or-group -m ping;
 ```
 
 # variables
+
+---
+
+# Session - 5
+
+recall
+ansible all -m copy -a 'content ="hello world" dest="/tmp/usama.log" '
