@@ -110,6 +110,7 @@ host_key_checking
 first create a user
 useradd -m ansible_user -s /bin/bash
 echo 'ansible_user:redhat' | sudo chpasswd
+
 echo "ansible_user ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/ansible_user
 
 switch to that user now generate ssh key by running ssh-keygen
@@ -117,6 +118,24 @@ copy ssh key to the client
 check ssh (it should not prompt for password)
 adduser sammy
 usermod -aG sudo sammy
+
+-- final way clearn
+
+sudo useradd -m admin_user -s /bin/bash
+echo 'admin_user:password' | sudo chpasswd
+sudo usermod -aG sudo admin_user
+id admin_user
+sudo su - admin_user
+sudo apt update
+
+---
+
+sudo useradd -m master -s /bin/bash
+echo 'master:password' | sudo chpasswd
+sudo usermod -aG sudo master
+id master
+sudo su - master
+sudo apt update
 
 ## Inventry base
 
