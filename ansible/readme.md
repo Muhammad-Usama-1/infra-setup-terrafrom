@@ -111,8 +111,6 @@ first create a user
 useradd -m ansible_user -s /bin/bash
 echo 'ansible_user:redhat' | sudo chpasswd
 
-echo "ansible_user ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/ansible_user
-
 switch to that user now generate ssh key by running ssh-keygen
 copy ssh key to the client
 check ssh (it should not prompt for password)
@@ -121,21 +119,42 @@ usermod -aG sudo sammy
 
 -- final way clearn
 
-sudo useradd -m admin_user -s /bin/bash
-echo 'admin_user:password' | sudo chpasswd
+### for adding in sudo group
+
 sudo usermod -aG sudo admin_user
+
+### for allowing run sudo without asking for password
+
+echo "ansible_user ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/ansible_user
 id admin_user
 sudo su - admin_user
 sudo apt update
 
----
+## example of the action
 
-sudo useradd -m master -s /bin/bash
-echo 'master:password' | sudo chpasswd
-sudo usermod -aG sudo master
-id master
-sudo su - master
-sudo apt update
+Cmnd_Alias CAPTURE =/usr/sbin/useradd
+Cmnd_Alias SYSTEM =/usr/bin/systemctl
+Cmnd_Alias NETALL = CAPTURE, SERVERS
+ff ALL=NETALL
+
+<!-- This line mean user usama is allowed to run command as sudo but usama -->
+<!-- have to provide root password -->
+
+```yaml
+usama    ALL=(ALL:ALL) ALL
+```
+
+from this command we have allowed usama to run sudo command with password (which is not recommended ofcourse in my opinion we always make sure to give least priviliged to the user)
+
+```yaml
+usama    ALL=(ALL:ALL) NOPASSWD: ALL
+```
+
+<!-- now it will not ask for password -->
+
+echo "master ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/master
+
+---
 
 ## Inventry base
 
@@ -145,7 +164,7 @@ ip ansible_ssh_user=remote-user ansibl_ssh_passremot-user-pass
 
 [web:vars]
 ansible_ssh_user=remote-user
-ansibl_ssh_passremot-user-pass
+ansibl_ssh_pass=remot-user-pass
 
 # | Ansible Ad-Hoc Commands & Modules |
 

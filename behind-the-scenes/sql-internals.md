@@ -3,7 +3,7 @@ https://www.pragimtech.com/blog/sql-optimization/how-is-data-stored-in-sql-datab
 
 ---
 
-, here's an explanation of each of those terms related to how data is stored in SQL databases:
+Here's an explanation of each of those terms related to how data is stored in SQL databases
 
 Data Pages: SQL databases store data on disk in fixed-size blocks called data pages. Typically, a data page is 4 KB in size, although this can vary depending on the database system. Each data page contains a portion of the data in a table. When data is inserted into a table, it is written to the appropriate data page(s) on disk. If a page is full, a new page is allocated to store additional data.
 
@@ -19,7 +19,7 @@ Overall, these terms are all related to how data is organized and retrieved in S
 
 ---
 
-here's an article on how data is stored in SQL databases:
+# How data is stored in SQL databases
 
 When it comes to storing data, SQL databases are one of the most popular options. SQL stands for Structured Query Language, which is a language used to manage and manipulate data in a relational database management system (RDBMS). In this article, we'll explore how data is stored in SQL databases.
 
