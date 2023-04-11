@@ -1,3 +1,5 @@
+Postfix is a popular open-source Mail Transfer Agent (MTA) that can be used to route and deliver email on a Linux system. It is estimated that around 25% of public mail servers on the internet run Postfix.
+
 # SMTP, IMAP, and POP
 
 SMTP, IMAP, and POP are all different protocols used for email communication.

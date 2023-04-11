@@ -14,7 +14,7 @@ DNS has a system to resolve name to IP
 nslookup linkedin.in
 ```
 
-DNS use port 53 , tcp for zone transfering and UPD for naming
+DNS use port 53 , tcp for zone transfering and UDP for naming
 
 Steps:
 
@@ -66,10 +66,31 @@ It is important to test your DNS configuration to ensure that it is working corr
 
 # DEMO
 
+hostnamectl set-hostname webmail.usama.local
 install
 
 yum install bind bind-utils
-sudo apt install -y bind9 bind9utils bind9-doc dnsutils
+
+```txt
+//forward zone
+
+
+zone "usama.local" IN {
+type master;
+file "usama.local.db";
+allow-update { none: };
+allow-query { any; };
+};
+
+// Backwar zone
+
+zone "0.0.10.in-addr.arpa" IN {
+type master;
+file "usama.local.rev";
+allow-update { none: };
+allow-query { any; };
+};
+```
 
 check file of
 

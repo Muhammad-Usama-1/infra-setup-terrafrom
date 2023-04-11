@@ -182,3 +182,7 @@ check ssh
 copy the keygen result to nodes with new user
 
 ## Ansible Adhoc Commands
+
+---
+
+when running playbook, and by providing -become flag , we can give sudo access
