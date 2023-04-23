@@ -83,10 +83,10 @@ allow-query { any; };
 };
 
 // Backwar zone
-
-zone "0.0.10.in-addr.arpa" IN {
+10.1.0.114
+zone "0.1.10.in-addr.arpa" IN {
 type master;
-file "usama.local.rev";
+file "reverse.example.com";
 allow-update { none: };
 allow-query { any; };
 };
